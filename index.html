@@ -50,7 +50,7 @@ var brush = d3.svg.brush()
     .x(x2)
     .on("brush", brushed);
 
-var area = d3.svg.area()
+var area = d3.svg.line()
     .interpolate("monotone")
     .x(function(d) { return x(d.date); })
     .y0(height)
