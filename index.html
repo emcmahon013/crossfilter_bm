@@ -80,7 +80,7 @@ var context = svg.append("g")
     .attr("class", "context")
     .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 
-d3.csv("sp500.csv", type, function(error, data) {
+d3.csv("fake_data.csv", type, function(error, data) {
   x.domain(d3.extent(data.map(function(d) { return d.date; })));
   y.domain([d3.min(data.map(function(d) {return d.sin; })), d3.max(data.map(function(d) { return d.sin; }))]);
   x2.domain(x.domain());
@@ -126,7 +126,6 @@ function brushed() {
 
 function type(d) {
   d.date = parseDate(d.date);
-  d.price = +d.price;
   d.sin = +d.sin;
   return d;
 }
