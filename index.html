@@ -11,12 +11,6 @@ svg {
   clip-path: url(#clip);
 }
 
-.path {
-  stroke: steelblue;
-  stroke-width: 2;
-  fill: none;
-}
-
 .axis path,
 .axis line {
   fill: none;
@@ -56,16 +50,18 @@ var brush = d3.svg.brush()
     .x(x2)
     .on("brush", brushed);
 
-var line = d3.svg.line()
-    .interpolate("monotone")
-    .x(function(d) { return x(d.date); })
-    .y(function(d) {return y(d.sin); });
-
 var area = d3.svg.area()
     .interpolate("monotone")
     .x(function(d) { return x(d.date); })
     .y0(height)
     .y1(function(d) { return y(d.sin); });
+
+var line2 = d3.svg.line()
+    .interpolate("monotone")
+    .x(function(d) { return x2(d.date); })
+    .y(function(d) {return y2(d.sin); });
+    // .y0(height2)
+    // .y1(function(d) { return y2(d.sin); });
 
 var area2 = d3.svg.area()
     .interpolate("monotone")
@@ -99,8 +95,8 @@ d3.csv("fake_data.csv", type, function(error, data) {
 
   focus.append("path")
       .datum(data)
-      .attr("class", "line")
-      .attr("d", line(data));
+      .attr("class", "area")
+      .attr("d", area);
 
   focus.append("g")
       .attr("class", "x axis")
@@ -113,8 +109,8 @@ d3.csv("fake_data.csv", type, function(error, data) {
 
   context.append("path")
       .datum(data)
-      .attr("class", "area")
-      .attr("d", area2);
+      .attr("class", "line")
+      .attr("d", line2);
 
   context.append("g")
       .attr("class", "x axis")
