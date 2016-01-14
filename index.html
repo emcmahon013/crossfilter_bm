@@ -82,7 +82,7 @@ var context = svg.append("g")
 
 d3.csv("sp500.csv", type, function(error, data) {
   x.domain(d3.extent(data.map(function(d) { return d.date; })));
-  y.domain([0, d3.max(data.map(function(d) { return d.sin; }))]);
+  y.domain([d3.min(data.map(function(d) {return d.sin; })), d3.max(data.map(function(d) { return d.sin; }))]);
   x2.domain(x.domain());
   y2.domain(y.domain());
 
