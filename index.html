@@ -17,11 +17,6 @@ svg {
   fill: none;
 }
 
-/*.path {
-  fill: steelblue;
-  stroke-width: 2;
-  fill: none;
-}*/
 
 .axis path,
 .axis line {
@@ -120,9 +115,13 @@ d3.csv("fake_data.csv", type, function(error, data) {
       .call(yAxis);
 
   context.append("path")
-      .datum(data)
-      .attr("class", "line")
-      .attr("d", line2);
+      .attr("class","line")
+      .attr("d",line2);
+
+  // context.append("path")
+  //     .datum(data)
+  //     .attr("class", "area")
+  //     .attr("d", area2);
 
   context.append("g")
       .attr("class", "x axis")
