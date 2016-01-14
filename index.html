@@ -11,6 +11,18 @@ svg {
   clip-path: url(#clip);
 }
 
+.line {
+  fill: steelblue;
+  stroke-width: 2;
+  fill: none;
+}
+
+.path {
+  fill: steelblue;
+  stroke-width: 2;
+  fill: none;
+}
+
 .axis path,
 .axis line {
   fill: none;
@@ -127,7 +139,7 @@ d3.csv("fake_data.csv", type, function(error, data) {
 
 function brushed() {
   x.domain(brush.empty() ? x2.domain() : brush.extent());
-  focus.select(".area").attr("d", area);
+  focus.select(".line").attr("d", line);
   focus.select(".x.axis").call(xAxis);
 }
 
