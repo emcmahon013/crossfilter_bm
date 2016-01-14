@@ -116,13 +116,8 @@ d3.csv("fake_data.csv", type, function(error, data) {
 
   context.append("path")
       .datum(data)
-      .attr("class","line")
-      .attr("d",line2);
-
-  // context.append("path")
-  //     .datum(data)
-  //     .attr("class", "area")
-  //     .attr("d", area2);
+      .attr("class", "area")
+      .attr("d", area2);
 
   context.append("g")
       .attr("class", "x axis")
