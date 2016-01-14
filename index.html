@@ -53,8 +53,9 @@ var brush = d3.svg.brush()
 var area = d3.svg.line()
     .interpolate("monotone")
     .x(function(d) { return x(d.date); })
-    .y0(height)
-    .y1(function(d) { return y(d.sin); });
+    .y(function(d) {return y(d.sin); });
+    // .y0(height)
+    // .y1(function(d) { return y(d.sin); });
 
 var area2 = d3.svg.area()
     .interpolate("monotone")
