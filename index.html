@@ -114,6 +114,10 @@ d3.csv("fake_data.csv", type, function(error, data) {
       .attr("class", "area")
       .attr("d", area2);
 
+  context.append("path")
+      .attr("class","line")
+      .attr("d",line2(data));
+
   context.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height2 + ")")
